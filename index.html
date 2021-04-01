@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Viagem</title>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <!-- <img src="" alt="Logo Minha Viagem">-->
+            <p>Bora viajar</p>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#pacotes">Pacotes</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+
+            </ul>
+        </nav>
+
+        <div id="home" class="header-content">
+            <h1>Viaje Conosco</h1>
+            <p>Venha conhecer as belezas desse mundo maravilhoso!</p>
+            <button>Saiba Mais</button>
+        </div>
+    </header>
+    <section id="pacotes" class="pacotes">
+        <h1 class="pacotes-title">Conheça Nossos Pacotes</h1>
+        <div class="pacotes-cards">
+            <div class="card">
+                <div class="card-tag-top">
+                    <p>Promoção</p>
+                </div>
+
+                <div class="card-tag-bottom">
+                    <p>R$ 2000,00</p>
+                </div>
+                <img class="card-image" src="assets/paris.jpg" alt="Imagem Paris">
+                <div class="card-content">
+                    <h1>Pacote de 6 noites em Hotel Premium em Paris</h1>
+                    <ul>
+                        <li><i data-feather="coffee"></i> Café da manhã</li>
+                        <li><i data-feather="wifi"></i> Wifi</li>
+                        <li><i data-feather="map"></i> Fácil localização</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-tag-top">
+                    <p>Últimas Vagas</p>
+                </div>
+
+                <div class="card-tag-bottom">
+                    <p>R$ 2500,00</p>
+                </div>
+                <img class="card-image" src="assets/rio-de-janeiro.jpg" alt="Imagem Rio de Janeiro">
+                <div class="card-content">
+                    <h1>10 noites na Cidade Maravilhosa</h1>
+                    <ul>
+                        <li><i data-feather="coffee"></i> Café da manhã</li>
+                        <li><i data-feather="wifi"></i> Wifi</li>
+                        <li><i data-feather="map"></i> Fácil localização</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-tag-top">
+                    <p>Imperdível</p>
+                </div>
+
+                <div class="card-tag-bottom">
+                    <p>R$ 3200,00</p>
+                </div>
+                <img class="card-image" src="assets/sao-francisco.jpg" alt="Imagem São Francisco - EUA">
+                <div class="card-content">
+                    <h1>5 Noites em São Francisco</h1>
+                    <ul>
+                        <li><i data-feather="coffee"></i> Café da manhã</li>
+                        <li><i data-feather="wifi"></i> Wifi</li>
+                        <li><i data-feather="map-pin"></i> Fácil localização</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="services">
+        <h1 class="services-title">Serviços</h1>
+
+        <div class="services-cards">
+            <div class="card">
+                <i data-feather="map"></i>
+                <div class="card-content">
+                    <h3>Tours Guiados</h3>
+                    <p>Conheça as belezas e curiosidades sobre os destinos que você escolher. Nossa equipe de turismo está sempre pronta para te atender.</p>
+                </div>
+                <button>Saiba Mais</button>
+            </div>
+
+            <div class="card">
+                <i data-feather="shopping-cart"></i>
+                <div class="card-content">
+                    <h3>Compras</h3>
+                    <p>Para que você não se preocupe com eventuais necessidades, nossa equipe está sempre a postos para ir ao mercado mais próximo e fazer compras para você.</p>
+                </div>
+                <button>Saiba Mais</button>
+            </div>
+
+            <div class="card">
+                <i data-feather="navigation-2"></i>
+                <div class="card-content">
+                    <h3>Aluguel de Veículos</h3>
+                    <p>Temos os melhores veículos para você curtir sua viagem sem depender de qualquer outro tipo de transporte.</p>
+                </div>
+                <button>Saiba Mais</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <h1 class="contato-title">Fale Conosco</h1>
+        <div class="mapa-form">
+            <div class="formulario">
+                <form>
+                    <div>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" />
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" />
+                    </div>
+                    <div>
+                        <label for="msg">Mensagem:</label>
+                        <textarea id="msg"></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="submit">Enviar sua mensagem</button>
+                    </div>
+                </form>
+            </div>
+            <div id="map"></div>
+        </div>
+    </section>
+
+    <script>
+        feather.replace();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            const uluru = {
+                lat: -25.344,
+                lng: 131.036
+            };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?&callback=initMap&libraries=&v=weekly" async></script>
+</body>
+
+</html>
